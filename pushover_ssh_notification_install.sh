@@ -35,7 +35,8 @@ tail -F /var/log/auth.log | gawk '{if(NR>10 && \$0 ~ /sshd/ && \$0 ~ /Accepted/)
 -F \"title=$PUSHOVER_NAME\" https://api.pushover.net/1/messages.json",\$9,\$11); \
 system(cmd)}}'
 EOM
-echo "script wurde int /opt erstellt"
+
+echo "script wurde in /opt erstellt"
 
 #write out current crontab
 crontab -l > pushover
@@ -44,7 +45,7 @@ echo "@reboot screen -dmS pushover-ssh sudo ./opt/pushover-ssh.sh" >> pushover
 #install new cron file
 crontab pushover
 rm pushover
-echo "crontab wurde erstellt. startet bei jeden reboot"
+echo "crontab wurde erstellt. Das Script startet nun bei jeden reboot"
 
 screen -dmS pushover-ssh sudo ./pushover-ssh.sh
-echo "screen wurde gestartet unter namen pushover-ssh"
+echo "Script wurde mit screen gestartet unter namen pushover-ssh, siehe screen -ls"
