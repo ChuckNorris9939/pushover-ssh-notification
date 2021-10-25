@@ -1,19 +1,17 @@
 #!/bin/bash
 
 apt install curl gawk screen -y
+
+read -p "Wie ist der PUSHOVER USER KEY:" PUSHOVER_USER
+echo Gesetzter Pushover USER KEY: $PUSHOVER_USER
+read -p "Wie ist der PUSHOVER API KEY:" PUSHOVER_API_TOKEN
+echo Gesetzter Pushover API KEY: $PUSHOVER_API_TOKEN
+read -p "Wie ist der PUSHOVER APP Name:" PUSHOVER_NAME
+echo Gesetzter Pushover APP Name: $PUSHOVER_NAME
+
 cd /opt/
 touch pushover-ssh.sh
 chmod +x pushover-ssh.sh
-
-read -p "Wie ist der PUSHOVER USER KEY:" PUSHOVER_USER
-read -p "Wie ist der PUSHOVER API KEY:" PUSHOVER_API_TOKEN
-read -p "Wie ist der PUSHOVER APP Name:" PUSHOVER_NAME
-
-echo Gesetzter Pushover USER KEY: $PUSHOVER_USER
-echo Gesetzter Pushover API KEY: $PUSHOVER_API_TOKEN
-echo Gesetzter Pushover APP Name: $PUSHOVER_NAME
-
-touch pushover-ssh.sh
 
 FILE="/opt/pushover-ssh.sh"
 /bin/cat <<EOM >$FILE
