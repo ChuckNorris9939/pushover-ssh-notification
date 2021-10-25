@@ -1,6 +1,7 @@
 #!/bin/bash
 
 apt install curl gawk screen -y
+cd /opt/
 touch pushover-ssh.sh
 chmod +x pushover-ssh.sh
 
